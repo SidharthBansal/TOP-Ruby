@@ -52,7 +52,7 @@ class LinkedList
 			return pop_node
 		else
 			prev=@head
-			until prev.next_node == @tail
+			until prev.next_node == @tail do
 				prev = prev.next_node
 			end
 			pop_node=@tail
@@ -85,7 +85,14 @@ class LinkedList
 	end
 
 	def to_s
-
+		cur=@head
+		st = ""
+		until cur == nil do
+			st<<"#{cur.value.to_s}->"
+			cur =cur.next_node
+		end
+		st<<"nil"
+		st
 	end
 
 	def insert_at(index)
