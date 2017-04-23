@@ -7,13 +7,23 @@ class LinkedList
 	end
 
 	def append
+		new_node=Node.new(val)
+		if@head==nil
+			@head=new_node
+			@tail=@head
+		else
+			@tail.next_node = new_node
+			@tail=new_node
+		end
 	end
 
 	def prepend
+
 	end
 
 	def size
 	end
+
 	def head
 		 @tail
 	end
