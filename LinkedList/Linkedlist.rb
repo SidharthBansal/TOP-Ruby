@@ -29,7 +29,13 @@ class LinkedList
 	end
 
 	def size
-
+		cur = @head
+		count =0 
+		until cur ==nil do 
+			curr = curr.next_node
+			count+=1
+		end 
+		count
 	end
 
 	def head
@@ -95,7 +101,8 @@ class LinkedList
 		st
 	end
 
-	def insert_at(index)
+	def insert_at(index,val)
+		
 
 	end
 
