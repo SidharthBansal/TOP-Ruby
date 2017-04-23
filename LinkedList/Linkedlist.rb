@@ -1,13 +1,24 @@
+require './Node.rb'
+
 class LinkedList
+	def initialize
+		@head = nil
+		@tail = nil
+	end
+
 	def append
 	end
+
 	def prepend
 	end
+
 	def size
 	end
 	def head
+		 @tail
 	end
-	def tails
+	def tail
+		 @tail
 	end
 	def at(index)
 	end
