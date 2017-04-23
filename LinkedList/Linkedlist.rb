@@ -39,10 +39,30 @@ class LinkedList
 	end
 	def at(index)
 	end
+
 	def pop
+		if@head==nil
+			puts "Error:Linked List is empty!!!"
+		elsif @head==@tail
+			pop_node=@tail
+			@head=nil
+			@tail=nil
+			return pop_node
+		else
+			prev=@head
+			until prev.next_node == @tail
+				prev = prev.next_node
+			end
+			pop_node=@tail
+			prev.next_node = nil
+			@tail = prev
+			return pop_node
+		end	
 	end
+
 	def contains?
 	end
+
 	def find(data)
 	end
 	def to_s
