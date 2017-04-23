@@ -73,7 +73,15 @@ class LinkedList
 
 
 	def find(val)
-
+		cur =@head
+		index = 0
+		until cur == nil do
+			return index if cur.value == value
+			index+=1
+			cur = cur.next_node
+		end
+		puts "ERROR:Element not found!!"
+		return nil
 	end
 
 	def to_s
