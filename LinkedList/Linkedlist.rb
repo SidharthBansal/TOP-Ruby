@@ -29,15 +29,17 @@ class LinkedList
 	end
 
 	def size
+
 	end
 
 	def head
-		 @tail
+		@head
 	end
 	def tail
-		 @tail
+		@tail
 	end
 	def at(index)
+
 	end
 
 	def pop
@@ -60,16 +62,30 @@ class LinkedList
 		end	
 	end
 
-	def contains?
+	def contains?(val)
+		cur =@head
+		until cur == nil do
+			return true if cur.value == val		
+			cur = cur.next_node	
+		end
+		return false
 	end
 
-	def find(data)
+
+	def find(val)
+
 	end
+
 	def to_s
+
 	end
+
 	def insert_at(index)
+
 	end
+
 	def remove_at(index)
+
 	end
 
 end
