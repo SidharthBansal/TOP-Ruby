@@ -111,14 +111,24 @@ class LinkedList
 		st
 	end
 
-	def insert_at(index,val)
-		
+	 def insert_at(index, val)
+    new_node = Node.new(val)
+    prev = at(index - 1)
+    curr = prev.next_node
+    prev.next_node = new_node
+    new_node.next_node = curr
 
-	end
+    @head = new_node if index == 0
+    @tail = new_node if index == size - 1
+  end
 
-	def remove_at(index)
-
-	end
-
+  def remove_at(index)
+    if index == 0
+      @head = @head.next_node
+    else
+      prev = at(index - 1)
+      prev.next_node = prev.next_node.next_node
+      @tail = at(size - 1) if index == size
+    end
+  end
 end
-
