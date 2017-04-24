@@ -45,7 +45,17 @@ class LinkedList
 		@tail
 	end
 	def at(index)
-
+		unless index < size
+			puts "Error:Index out of boundary!"
+			return nil
+		end
+		count = 1
+		node=@head
+		until count == index
+			count+=1
+			node = node.next_node
+		end
+		node
 	end
 
 	def pop
