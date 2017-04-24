@@ -134,3 +134,69 @@ class LinkedList
 	    end
   	end
 end
+# Tests
+
+list = LinkedList.new
+list.append(5)
+list.append(7)
+list.prepend(14)
+list.append(34)
+list.prepend("great")
+
+p list
+puts
+
+puts "Size: #{list.size}"
+puts list.head
+puts list.tail
+puts
+puts list.at(3)
+puts list.at(5)
+puts list.at(15)
+puts list.at(-5)
+puts
+
+puts list.contains?(5)
+puts list.contains?(34)
+puts list.contains?(30)
+puts
+
+puts list.find(5)
+puts list.find("great")
+puts list.find(34)
+puts list.find(44)
+puts
+
+puts list.to_s
+puts
+
+list.insert_at(33, 1)
+list.insert_at(55, 7)
+list.insert_at("hello", 3)
+puts list.to_s
+puts
+
+list.remove_at(99)
+list.remove_at(1)
+puts list.to_s
+list.remove_at(4)
+puts list.to_s
+list.remove_at(6)
+puts list.to_s
+puts
+
+list.pop
+p list
+list.pop
+p list
+list.pop
+p list
+list.pop
+p list
+list.pop
+p list
+list.pop
+p list
+
+puts
+puts list.contains?(34)

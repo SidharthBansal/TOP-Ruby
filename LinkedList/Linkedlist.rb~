@@ -1,11 +1,11 @@
 require './Node.rb'
-
+#class Linked list initialized with head and tail both nil
 class LinkedList
 	def initialize
 		@head = nil
 		@tail = nil
 	end
-
+	#function to append a value
 	def append(val)
 		new_node=Node.new(val)
 		if@head==nil
@@ -16,7 +16,7 @@ class LinkedList
 			@tail=new_node
 		end
 	end
-
+	#function to prepend a value
 	def prepend(val)
 		new_node=Node.new(val)
 		if@head==nil
@@ -27,7 +27,7 @@ class LinkedList
 			@head=new_node
 		end
 	end
-
+	#function to find size of linked list
 	def size
 		cur = @head
 		count =0 
@@ -37,13 +37,15 @@ class LinkedList
 		end 
 		count
 	end
-
+	#function to find head 
 	def head
 		@head
 	end
+	#function to find tail
 	def tail
 		@tail
 	end
+	#function to find node at a particulare index
 	def at(index)
 		unless index < size
 			puts "Error:Index out of boundary!"
@@ -57,7 +59,7 @@ class LinkedList
 		end
 		node
 	end
-
+	#function to pop
 	def pop
 		if@head==nil
 			puts "Error:Linked List is empty!!!"
@@ -77,7 +79,7 @@ class LinkedList
 			return pop_node
 		end	
 	end
-
+	#function to check whether an element exist ?
 	def contains?(val)
 		cur =@head
 		until cur == nil do
@@ -87,7 +89,7 @@ class LinkedList
 		return false
 	end
 
-
+	#function to find value if exists
 	def find(val)
 		cur =@head
 		index = 0
@@ -99,7 +101,7 @@ class LinkedList
 		puts "ERROR:Element not found!!"
 		return nil
 	end
-
+	#fundtion to represent LinkedList objects as strings
 	def to_s
 		cur=@head
 		st = ""
@@ -110,25 +112,25 @@ class LinkedList
 		st<<"nil"
 		st
 	end
-
+	#function to insert a value at a particular value
 	 def insert_at(index, val)
-    new_node = Node.new(val)
-    prev = at(index - 1)
-    curr = prev.next_node
-    prev.next_node = new_node
-    new_node.next_node = curr
+	    new_node = Node.new(val)
+	    prev = at(index - 1)
+	    curr = prev.next_node
+	    prev.next_node = new_node
+	    new_node.next_node = curr
 
-    @head = new_node if index == 0
-    @tail = new_node if index == size - 1
-  end
-
-  def remove_at(index)
-    if index == 0
-      @head = @head.next_node
-    else
-      prev = at(index - 1)
-      prev.next_node = prev.next_node.next_node
-      @tail = at(size - 1) if index == size
-    end
-  end
+	    @head = new_node if index == 0
+	    @tail = new_node if index == size - 1
+	  end
+	#function to remove a value at a particular value
+	  def remove_at(index)
+	    if index == 0
+	      @head = @head.next_node
+	    else
+	      prev = at(index - 1)
+	      prev.next_node = prev.next_node.next_node
+	      @tail = at(size - 1) if index == size
+	    end
+  	end
 end
