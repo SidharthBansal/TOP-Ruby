@@ -134,3 +134,25 @@ class LinkedList
 	    end
   	end
 end
+# Tests
+
+list = LinkedList.new
+list.append(5)
+list.append(7)
+list.prepend(14)
+list.append(34)
+list.prepend("great")
+
+p list
+puts
+
+puts "Size: #{list.size}"
+puts list.head
+puts list.tail
+puts
+puts list.at(3)
+puts list.at(5)
+puts list.at(15)
+puts list.at(-5)
+puts
+

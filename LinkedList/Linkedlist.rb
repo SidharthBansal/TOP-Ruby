@@ -32,7 +32,7 @@ class LinkedList
 		cur = @head
 		count =0 
 		until cur ==nil do 
-			curr = curr.next_node
+			cur = cur.next_node
 			count+=1
 		end 
 		count
@@ -47,13 +47,14 @@ class LinkedList
 	end
 	#function to find node at a particulare index
 	def at(index)
+		
 		unless index < size
 			puts "Error:Index out of boundary!"
 			return nil
 		end
 		count = 1
 		node=@head
-		until count == index
+		until count == index 
 			count+=1
 			node = node.next_node
 		end
@@ -94,14 +95,14 @@ class LinkedList
 		cur =@head
 		index = 0
 		until cur == nil do
-			return index if cur.value == value
+			return index if cur.value == val
 			index+=1
 			cur = cur.next_node
 		end
 		puts "ERROR:Element not found!!"
 		return nil
 	end
-	#fundtion to represent LinkedList objects as strings
+	#function to represent LinkedList objects as strings
 	def to_s
 		cur=@head
 		st = ""
@@ -113,26 +114,64 @@ class LinkedList
 		st
 	end
 	#function to insert a value at a particular value
-	 def insert_at(index, val)
-	    new_node = Node.new(val)
-	    prev = at(index - 1)
-	    curr = prev.next_node
-	    prev.next_node = new_node
-	    new_node.next_node = curr
+	  # Inserts data at given index
+  def insert_at(data, index)
+    size = self.size
+    if index == 1
+      self.prepend(data)
+      return nil
+    elsif index == size + 1
+      self.append(data)
+      return nil
+    elsif index > size || index < 0
+      puts "Error: Index is not within list boundary!"
+      return nil
+    else
+      node = @head
+      count = 1
+      until count == index
+        if count < index
+          prev = node
+        end
+        node = node.next_node
+        count += 1
+      end
+      new_node = Node.new(data)
+      new_node.next_node = node
+      prev.next_node = new_node
+    end
+  end
 
-	    @head = new_node if index == 0
-	    @tail = new_node if index == size - 1
-	  end
-	#function to remove a value at a particular value
-	  def remove_at(index)
-	    if index == 0
-	      @head = @head.next_node
-	    else
-	      prev = at(index - 1)
-	      prev.next_node = prev.next_node.next_node
-	      @tail = at(size - 1) if index == size
-	    end
-  	end
+  # Removes node at given index
+  def remove_at(index)
+    size = self.size
+    if index > size || index < 0
+      puts "Error: Index is not within list boundary!"
+      return nil
+    elsif index == size
+      self.pop
+      return nil
+    elsif index == 1
+      node = @head
+      prev = node
+      node = node.next_node
+      prev.next_node = nil
+      @head = node
+      return nil
+    else
+      node = @head
+      count = 1
+      until count == index
+        if count < index
+          prev = node
+        end
+        node = node.next_node
+        count += 1
+      end
+      prev.next_node = node.next_node
+      node.next_node = node
+    end
+  end
 end
 # Tests
 
@@ -153,7 +192,7 @@ puts
 puts list.at(3)
 puts list.at(5)
 puts list.at(15)
-puts list.at(-5)
+#puts list.at(-5)
 puts
 
 puts list.contains?(5)
@@ -173,6 +212,7 @@ puts
 list.insert_at(33, 1)
 list.insert_at(55, 7)
 list.insert_at("hello", 3)
+list.insert_at(5, 3)
 puts list.to_s
 puts
 
@@ -181,7 +221,7 @@ list.remove_at(1)
 puts list.to_s
 list.remove_at(4)
 puts list.to_s
-list.remove_at(6)
+#list.remove_at(6)
 puts list.to_s
 puts
 
